@@ -37,8 +37,9 @@ public class PlayerMovement : MonoBehaviour
 
         pitch = Mathf.Clamp(pitch, -90f, 90f);
 
-        Vector3 inputOnAxis = new Vector3(horizontal, 0, vertical);
-        Vector3 motion = inputOnAxis * speed * Time.deltaTime;
+        Vector3 inputOnAxis = new Vector3(horizontal, 0, vertical); //input XZ axis
+        Vector3 motion = inputOnAxis * speed * Time.deltaTime; //motion on global axis
+        motion = transform.rotation * motion; //motion multiplied by rotation -> getting local transformation
         motion += Physics.gravity * Time.deltaTime;
 
         transform.localRotation = Quaternion.Euler(Vector3.up * jaw);
