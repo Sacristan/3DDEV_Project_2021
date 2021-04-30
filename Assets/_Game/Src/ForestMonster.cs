@@ -21,6 +21,8 @@ public class ForestMonster : MonoBehaviour
     [SerializeField] float closeEnoughDistance = 2f;
     [SerializeField] float triggerAttackDistance = 10f;
 
+    int health = 100;
+
     public State CurrentState
     {
         get => currentState;
@@ -37,6 +39,7 @@ public class ForestMonster : MonoBehaviour
 
     void UpdateState()
     {
+        if (CurrentState == State.Dead) Stop();
         UpdateAnimation();
     }
 
@@ -54,6 +57,15 @@ public class ForestMonster : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         CurrentState = State.Idle;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.GetComponent<Bullet>())
+        {
+            CurrentState = State.Following;
+            DoDamage(damage: 10);
+        }
     }
 
     private void Update()
@@ -99,5 +111,11 @@ public class ForestMonster : MonoBehaviour
     public void SendDamageToPlayer()
     {
         _player.ReceiveDamage(20);
+    }
+
+    void DoDamage(int damage)
+    {
+        health = Mathf.Clamp(health - damage, 0, 100);
+        if (health <= 0) CurrentState = State.Dead;
     }
 }

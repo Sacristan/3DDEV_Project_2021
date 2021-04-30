@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1167514161276368339}
   - component: {fileID: 152812635}
   - component: {fileID: 1876145215}
+  - component: {fileID: 1876145216}
+  - component: {fileID: 2511428225286043660}
   m_Layer: 0
   m_Name: ForestMonster
   m_TagString: Untagged
@@ -69,6 +71,36 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &1876145216
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167514161276368338}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &2511428225286043660
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167514161276368338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.58
+  m_Height: 7.780561
+  m_Direction: 1
+  m_Center: {x: 0.000000008508774, y: 3.7352223, z: -5.890748e-10}
 --- !u!114 &1602215201
 MonoBehaviour:
   m_ObjectHideFlags: 0
