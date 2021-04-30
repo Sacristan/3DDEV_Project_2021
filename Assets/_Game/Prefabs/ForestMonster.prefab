@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1167514161276368339}
   - component: {fileID: 152812635}
+  - component: {fileID: 1876145215}
   m_Layer: 0
   m_Name: ForestMonster
   m_TagString: Untagged
@@ -44,6 +45,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a824d62ff783cf448b62871de53a60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closeEnoughDistance: 5
+  triggerAttackDistance: 10
+--- !u!195 &1876145215
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167514161276368338}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.77
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 7.17
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &1167514161855506187
 PrefabInstance:
   m_ObjectHideFlags: 0
