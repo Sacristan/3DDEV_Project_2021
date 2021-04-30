@@ -16,7 +16,7 @@ public class ForestMonster : MonoBehaviour
 
     Animator _animator;
     NavMeshAgent _navmeshAgent;
-    GameObject _player;
+    Player _player;
     State currentState = State.None;
     [SerializeField] float closeEnoughDistance = 2f;
     [SerializeField] float triggerAttackDistance = 10f;
@@ -51,7 +51,7 @@ public class ForestMonster : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         _navmeshAgent = GetComponent<NavMeshAgent>();
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         CurrentState = State.Idle;
     }
@@ -94,5 +94,10 @@ public class ForestMonster : MonoBehaviour
             _navmeshAgent.isStopped = true;
             _navmeshAgent.velocity = Vector3.zero;
         }
+    }
+
+    public void SendDamageToPlayer()
+    {
+        _player.ReceiveDamage(20);
     }
 }
